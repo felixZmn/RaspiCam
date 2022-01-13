@@ -1,0 +1,35 @@
+img
+{
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+body
+{
+    background-color: brown;
+}
+
+.video
+{
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+}
+
+.viewDirection
+{
+    width: 100%;
+}
+.cameraMode > form
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+.streamSettings
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    
+}
