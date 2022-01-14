@@ -3,12 +3,17 @@
 # http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming
 
 import io
+from lib2to3.pgen2.token import NUMBER
+from tokenize import Double
 import picamera
 import logging
 import socketserver
 from threading import Condition
 from http import server
 from urllib import parse
+from servo import Servo
+
+servo1 = Servo(18)
 
 
 class StreamingOutput(object):
@@ -58,8 +63,25 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.end_headers()
 
     def do_POST(self):
-        degres = parse.parse_qs(parse.urlparse(self.path).query)['degres'][0]
-        print()
+        if self.path.startswith('/servo/'):
+            id = int(self.path[7])
+            degrees = float(parse.parse_qs(
+                parse.urlparse(self.path).query)['degrees'][0])
+
+            if id != 1 and id != 0 or (degrees < 0 or degrees > 100):
+                self.send_response(400)
+                self.end_headers()
+                return
+
+            print("move motor")
+            servo1.move(degrees)
+
+            self.send_response(200)
+            self.end_headers()
+
+        else:
+            self.send_error(404)
+            self.end_headers()
 
 
 class StreamingServer(socketserver.ThreadingMixIn, server.HTTPServer):
