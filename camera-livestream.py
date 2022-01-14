@@ -68,14 +68,13 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             degrees = float(parse.parse_qs(
                 parse.urlparse(self.path).query)['degrees'][0])
 
-            if id != 1 and id != 0 or (degrees < 0 or degrees > 100):
+            if id != 0 and id != 1 or (degrees < 0 or degrees > 100):
                 self.send_response(400)
                 self.end_headers()
                 return
+            print("move motor to: ", degrees)
 
-            print("move motor")
             servo1.move(degrees)
-
             self.send_response(200)
             self.end_headers()
 
