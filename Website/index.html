@@ -1,53 +1,74 @@
 <!DOCTYPE html>
 <html lang="de-de">
     <head>
+        <meta charset="utf-8"/>
         <title>Raspberry Pi - Surveillance Camera</title>
         <link rel="stylesheet" type="text/css" href="index.css">
+        <script type="text/javascript">
+            function rangeSlide1(value) {
+                 document.getElementById('rangeValue1').innerHTML = value;
+                 console.log(value);
+                 fetch("http://192.168.137.203:8000/servo/0?degrees="+value,{method:"POST"});
+
+            }
+            function rangeSlide2(value) {
+                document.getElementById('rangeValue2').innerHTML = value;
+            }
+        </script>
     </head>
 <body>
-    <h1>ÜBERWACHUNGSKAMERA</h1>
     <div class="content">
         <div class="video">
-            <div class="stream">
-                <img src="/Website/img/dummyLiveStream.jpg">
-            </div>
+            
+            <img src="http://192.168.137.203:8000/stream.mjpg">
+            
+        </div>
+            
             <div class="streamSettings">
-                <div class="lightButton">
-
-                </div> 
-                <div class="viewDirection">
-                    <input type="range" min="1" max="100" value="50">
+                <h2>ÜBERWACHUNGSKAMERA</h2>
+                <h3>LED</h2>
+                <div class="wrapper">
+                    <input type="radio" name="select" id="option-1" checked>
+                    <input type="radio" name="select" id="option-2">
+                      <label for="option-1" class="option option-1">
+                        <div class="dot"></div>
+                         <span>ON</span>
+                         </label>
+                      <label for="option-2" class="option option-2">
+                        <div class="dot"></div>
+                         <span>OFF</span>
+                      </label>
+                   </div>
+                <div class="viewXDirection">
+                    <div>
+                        <h3>Horizontal</h2>
+                        <!-- <span >0</span> -->
+                        <Input class="range" id="rangeValue1" type="range" value1="50" min="0" max="100" onChange="rangeSlide1(this.value)"></Input>
+                    </div>
+                </div>
+                <div class="viewYDirection">
+                    <div>
+                        <h3>Vertikal</h2>
+                        <!-- <span id="rangeValue2">0</span> -->
+                        <Input class="range" type="range" value2="50" min="0" max="100" onChange="rangeSlide2(this.value)" />
                 </div>
                 <div class="cameraMode">
-                    <form  action="/Website/index.html" method="post">
-                        <div>
-                            <input id="modus1" type="radio" name="mode" value="mode1" >
-                            <label>Modus 1</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="mode" value="mode2">
-                            <label>Modus 2</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="mode" value="mode3">
-                            <label>Modus 3</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="mode" value="mode4">
-                            <label>Modus 4</label>
-                        </div>
-                        <div>
-                            <input type="radio" name="mode" value="mode5">
-                            <label>Modus 5</label>
-                        </div>
-                        <button>Update</button>
+                    <form>
+                        <label>
+                            <input type="radio" name="radio" checked/>
+                            <span>HTML</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="radio"/>
+                            <span>CSS</span>
+                        </label>
+                        <label>
+                            <input type="radio" name="radio"/>
+                            <span>Javascript</span>
+                        </label>
                     </form>
                 </div>
              </div>   
-             
-            
-            
-            
         </div>
     </di>
 </body>
