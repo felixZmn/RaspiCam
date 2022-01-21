@@ -14,6 +14,8 @@ from urllib import parse
 from servo import Servo
 
 servo1 = Servo(18)
+# need to change port
+servo2 = Servo(12)
 
 
 class StreamingOutput(object):
@@ -63,6 +65,7 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
             self.end_headers()
 
     def do_POST(self):
+        # /servo/1?degrees=[1-100]
         if self.path.startswith('/servo/'):
             id = int(self.path[7])
             degrees = float(parse.parse_qs(
@@ -72,9 +75,14 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
                 self.send_response(400)
                 self.end_headers()
                 return
-            print("move motor to: ", degrees)
-
-            servo1.move(degrees)
+            if id == 0:
+                servo1.move(degrees)
+            elif id == 1:
+                servo2.move(degrees)
+            else:
+                self.send_response(400)
+                self.end_headers()
+                return
             self.send_response(200)
             self.end_headers()
 
