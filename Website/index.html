@@ -5,14 +5,9 @@
         <title>Raspberry Pi - Surveillance Camera</title>
         <link rel="stylesheet" type="text/css" href="index.css">
         <script type="text/javascript">
-            function rangeSlide1(value) {
-                 document.getElementById('rangeValue1').innerHTML = value;
-                 console.log(value);
-                 fetch("http://192.168.137.203:8000/servo/0?degrees="+value,{method:"POST"});
+            function rangeSlide(value,servoId) {
 
-            }
-            function rangeSlide2(value) {
-                document.getElementById('rangeValue2').innerHTML = value;
+                 fetch("http://192.168.137.203:8000/servo/" + servoId + "?degrees="+value,{method:"POST"});
             }
         </script>
     </head>
@@ -42,15 +37,13 @@
                 <div class="viewXDirection">
                     <div>
                         <h3>Horizontal</h2>
-                        <!-- <span >0</span> -->
-                        <Input class="range" id="rangeValue1" type="range" value1="50" min="0" max="100" onChange="rangeSlide1(this.value)"></Input>
+                        <Input class="range"  type="range" value="50" min="0" max="100" onChange="rangeSlide(this.value,0)"/>
                     </div>
                 </div>
                 <div class="viewYDirection">
                     <div>
                         <h3>Vertikal</h2>
-                        <!-- <span id="rangeValue2">0</span> -->
-                        <Input class="range" type="range" value2="50" min="0" max="100" onChange="rangeSlide2(this.value)" />
+                        <Input class="range" type="range" value="50" min="0" max="100" onChange="rangeSlide(this.value,1)" />
                 </div>
                 <div class="cameraMode">
                     <form>
