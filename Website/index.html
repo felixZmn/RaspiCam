@@ -1,68 +1,81 @@
 <!DOCTYPE html>
 <html lang="de-de">
-    <head>
-        <meta charset="utf-8"/>
-        <title>Raspberry Pi - Surveillance Camera</title>
-        <link rel="stylesheet" type="text/css" href="index.css">
-        <script type="text/javascript">
-            function rangeSlide(value,servoId) {
-
-                 fetch("http://192.168.137.203:8000/servo/" + servoId + "?degrees="+value,{method:"POST"});
-            }
-        </script>
-    </head>
-<body>
+  <head>
+    <meta charset="utf-8" />
+    <title>Raspberry Pi - Surveillance Camera</title>
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <script type="text/javascript">
+      function rangeSlide(value, servoId) {
+        fetch(
+          "http://192.168.137.203:8000/servo/" + servoId + "?degrees=" + value,
+          { method: "POST" }
+        );
+      }
+    </script>
+  </head>
+  <body>
     <div class="content">
-        <div class="video">
-            
-            <img src="http://192.168.137.203:8000/stream.mjpg">
-            
+      <div class="video">
+        <img src="http://192.168.137.203:8000/stream.mjpg" />
+      </div>
+      <div class="streamSettings">
+        <h2>ÜBERWACHUNGSKAMERA</h2>
+        <h3>LED</h3>
+        <div class="wrapper">
+          <input type="radio" name="select" id="option-1" checked />
+          <input type="radio" name="select" id="option-2" />
+          <label for="option-1" class="option option-1">
+            <div class="dot"></div>
+            <span>ON</span>
+          </label>
+          <label for="option-2" class="option option-2">
+            <div class="dot"></div>
+            <span>OFF</span>
+          </label>
         </div>
-            
-            <div class="streamSettings">
-                <h2>ÜBERWACHUNGSKAMERA</h2>
-                <h3>LED</h2>
-                <div class="wrapper">
-                    <input type="radio" name="select" id="option-1" checked>
-                    <input type="radio" name="select" id="option-2">
-                      <label for="option-1" class="option option-1">
-                        <div class="dot"></div>
-                         <span>ON</span>
-                         </label>
-                      <label for="option-2" class="option option-2">
-                        <div class="dot"></div>
-                         <span>OFF</span>
-                      </label>
-                   </div>
-                <div class="viewXDirection">
-                    <div>
-                        <h3>Horizontal</h2>
-                        <Input class="range"  type="range" value="50" min="0" max="100" onChange="rangeSlide(this.value,0)"/>
-                    </div>
-                </div>
-                <div class="viewYDirection">
-                    <div>
-                        <h3>Vertikal</h2>
-                        <Input class="range" type="range" value="50" min="0" max="100" onChange="rangeSlide(this.value,1)" />
-                </div>
-                <div class="cameraMode">
-                    <form>
-                        <label>
-                            <input type="radio" name="radio" checked/>
-                            <span>HTML</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="radio"/>
-                            <span>CSS</span>
-                        </label>
-                        <label>
-                            <input type="radio" name="radio"/>
-                            <span>Javascript</span>
-                        </label>
-                    </form>
-                </div>
-             </div>   
+        <div class="viewXDirection">
+          <div>
+            <h3>Horizontal</h3>
+            <input
+              class="range"
+              type="range"
+              value="50"
+              min="0"
+              max="100"
+              onChange="rangeSlide(this.value,0)"
+            />
+          </div>
         </div>
-    </di>
-</body>
+        <div class="viewYDirection">
+          <div>
+            <h3>Vertikal</h3>
+            <input
+              class="range"
+              type="range"
+              value="50"
+              min="0"
+              max="100"
+              onChange="rangeSlide(this.value,1)"
+            />
+          </div>
+          <div class="cameraMode">
+            <form>
+              <label>
+                <input type="radio" name="radio" checked />
+                <span>HTML</span>
+              </label>
+              <label>
+                <input type="radio" name="radio" />
+                <span>CSS</span>
+              </label>
+              <label>
+                <input type="radio" name="radio" />
+                <span>Javascript</span>
+              </label>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,67 +1,57 @@
-img
-{
-    max-width: 100%;
-    height: auto;
-    display: block;
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
-body
-{
-    background-color: #34568B;
-    
+body {
+  background-color: #34568b;
 }
 
-img
-{
-    object-fit: contain;
-}
-
-.video
-{
+img {
   object-fit: contain;
 }
 
-h2
-{
+.video {
+  object-fit: contain;
+}
+
+h2 {
   color: #fff;
   margin-bottom: 20px;
 }
 
-h3
-{
+h3 {
   color: #fff;
   margin-bottom: 10px;
 }
 
-.content
-{
+.content {
   display: grid;
   grid-template-columns: 4fr 1fr;
   grid-template-rows: 100%;
   height: 100vh;
 }
 
-.streamSettings
-{
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    background-color: #363945;
+.streamSettings {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  background-color: #363945;
 }
 
-.streamSettings > div
-{
+.streamSettings > div {
   margin-bottom: 20px;
 }
 
-@import url('https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap');
-*{
+@import url("https://fonts.googleapis.com/css?family=Lato:400,500,600,700&display=swap");
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Lato', sans-serif;
+  font-family: "Lato", sans-serif;
 }
 
-.wrapper{
+.wrapper {
   display: inline-flex;
   height: 50px;
   width: 300px;
@@ -69,7 +59,7 @@ h3
   justify-content: space-evenly;
   border-radius: 5px;
 }
-.wrapper .option{
+.wrapper .option {
   background: #fff;
   height: 100%;
   width: 100%;
@@ -79,18 +69,18 @@ h3
   margin: 0 10px;
   border-radius: 5px;
   cursor: pointer;
-  
+
   border: 2px solid lightgrey;
   transition: all 0.3s ease;
 }
-.wrapper .option .dot{
+.wrapper .option .dot {
   height: 20px;
   width: 20px;
   background: #d9d9d9;
   border-radius: 50%;
   position: relative;
 }
-.wrapper .option .dot::before{
+.wrapper .option .dot::before {
   position: absolute;
   content: "";
   top: 4px;
@@ -103,47 +93,47 @@ h3
   transform: scale(1.5);
   transition: all 0.3s ease;
 }
-input[type="radio"]{
+input[type="radio"] {
   display: none;
 }
 #option-1:checked:checked ~ .option-1,
-#option-2:checked:checked ~ .option-2{
+#option-2:checked:checked ~ .option-2 {
   border-color: #0069d9;
   background: #0069d9;
 }
 #option-1:checked:checked ~ .option-1 .dot,
-#option-2:checked:checked ~ .option-2 .dot{
+#option-2:checked:checked ~ .option-2 .dot {
   background: #fff;
 }
 #option-1:checked:checked ~ .option-1 .dot::before,
-#option-2:checked:checked ~ .option-2 .dot::before{
+#option-2:checked:checked ~ .option-2 .dot::before {
   opacity: 1;
   transform: scale(1);
 }
-.wrapper .option span{
+.wrapper .option span {
   font-size: 20px;
   color: #808080;
 }
 #option-1:checked:checked ~ .option-1 span,
-#option-2:checked:checked ~ .option-2 span{
+#option-2:checked:checked ~ .option-2 span {
   color: #fff;
 }
 
 .range {
   position: relative;
-    display: block;
-    text-align: center;
-    font-size: 6em;
-    color: #999;
-    font-weight: 400;
-    width: 400px;
-    height: 15px;
-    -webkit-appearance: none;
-    background: #111;
-    outline: none;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
+  display: block;
+  text-align: center;
+  font-size: 6em;
+  color: #999;
+  font-weight: 400;
+  width: 400px;
+  height: 15px;
+  -webkit-appearance: none;
+  background: #111;
+  outline: none;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 1);
 }
 .range::-webkit-slider-thumb {
   -webkit-appearance: none;
@@ -156,7 +146,7 @@ input[type="radio"]{
   box-shadow: -407px 0 0 400px #0069d9;
 }
 
-.range::-moz-range-thumb{
+.range::-moz-range-thumb {
   -moz-appearance: none;
   width: 7px;
   height: 7px;
@@ -165,10 +155,10 @@ input[type="radio"]{
   background: #0069d9;
   cursor: pointer;
   border: 4px solid #fff;
-  box-shadow: -407px 0 0 400px #0069d9
+  box-shadow: -407px 0 0 400px #0069d9;
 }
 
-.range::-ms-thumb{
+.range::-ms-thumb {
   -ms-appearance: none;
   width: 15px;
   height: 15px;
@@ -177,6 +167,5 @@ input[type="radio"]{
   background: #0069d9;
   cursor: pointer;
   border: 4px solid #fff;
-  box-shadow: -407px 0 0 400px #0069d9
+  box-shadow: -407px 0 0 400px #0069d9;
 }
- 
