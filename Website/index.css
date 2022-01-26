@@ -10,7 +10,6 @@ body
     
 }
 
-
 img
 {
     object-fit: contain;
@@ -20,7 +19,6 @@ img
 {
   object-fit: contain;
 }
-
 
 h2
 {
@@ -41,9 +39,6 @@ h3
   grid-template-rows: 100%;
   height: 100vh;
 }
-
-
-
 
 .streamSettings
 {
@@ -134,11 +129,6 @@ input[type="radio"]{
   color: #fff;
 }
 
-
-#rangeValue0, #rangeValue1
-{
-    
- }
 .range {
   position: relative;
     display: block;
