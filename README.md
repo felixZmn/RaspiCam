@@ -2,7 +2,15 @@
 Welcome to RaspiCam!
 It's an university-motivated project to learn something about the [raspberry pi](https://www.raspberrypi.com/)
 ## Features
+* The camera transfers the image to a website
+* On the website you can control the camera direction
+* You can change the camera in vertical and horizontal direction
 ## Dependecies
+* Apache Webserver
+* Python-pip
+* Python PiCamera
+* Python RPi.GPIO
+* Python Numpy
 ## Installation
 ### **Hardware**
 * Raspberry Pi
@@ -36,7 +44,7 @@ For more information about the servo driver, click [here](https://www.waveshare.
 
 ### **Setup servo motors with frame**
 * Plug in the vertical servo motor in `pin 0`
-* Plug in the vertical servo motor in `pin 1`
+* Plug in the horizontal servo motor in `pin 1`
 
 ```
 G = Ground
@@ -54,5 +62,7 @@ To verify that the Apache web server is running correctly on your Raspberry Pi, 
 4. Replace all files inside this folder with the content from `Website (Folder from the Repo)`
 
 If you enter the IP address from the Raspberry Pi into a web browser now, you should see the camera control website 
+
+#### ****
 
 ## Usage
