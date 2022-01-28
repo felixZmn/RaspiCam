@@ -3,8 +3,6 @@
 # http://picamera.readthedocs.io/en/latest/recipes2.html#web-streaming
 
 import io
-from lib2to3.pgen2.token import NUMBER
-from tokenize import Double
 import picamera
 import logging
 import socketserver
