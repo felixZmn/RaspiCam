@@ -3,14 +3,13 @@ Welcome to RaspiCam!
 It's an university-motivated project to learn something about the [raspberry pi](https://www.raspberrypi.com/)
 ## Features
 * The camera transfers the image to a website
-* On the website you can control the camera direction
-* You can change the camera in vertical and horizontal direction
+* On the website you can control the vertical and horizontal camera direction and if a light should be on or off
 ## Dependecies
-* Apache Webserver
-* Python-pip
-* Python PiCamera
-* Python RPi.GPIO
-* Python Numpy
+* [Apache Webserver](#apache-webserver)
+* Python 3
+* Python [PiCamera](#picamera)
+* Python [RPi.GPIO](#rpi.gpio)
+* Python [Numpy](#numpy)
 ## Installation
 ### **Hardware**
 * Raspberry Pi
@@ -63,6 +62,16 @@ To verify that the Apache web server is running correctly on your Raspberry Pi, 
 
 If you enter the IP address from the Raspberry Pi into a web browser now, you should see the camera control website 
 
-#### ****
+#### **PiCamera**
+`sudo apt-get install python3-picamera`
+
+#### **RPi.GPIO**
+`sudo apt-get install python3-rpi.gpio`
+
+#### **Numpy**
+`sudo apt-get install python3-numpy`
+
 
 ## Usage
+Enter the IP address of your Raspberry Pi in a web browser. This will take you to the camera's control website where you can control it. Now you can monitor your area and receive the current video with your smartphone. 
+
