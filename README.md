@@ -42,7 +42,7 @@ It's an university-motivated project to learn something about the [raspberry pi]
 For more information about the servo driver, click [here](https://www.waveshare.com/wiki/Servo_Driver_HAT) 
 
 
-### **Setup servo motors with frame**
+#### **Setup servo motors with frame**
 * Plug in the vertical servo motor in `pin 0`
 * Plug in the horizontal servo motor in `pin 1`
 
