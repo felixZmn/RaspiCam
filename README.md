@@ -80,6 +80,27 @@ If you enter the IP address from the Raspberry Pi into a web browser now, you sh
 
 `sudo apt-get install python3-numpy`
 
+### **Setup with script** (requires apache webserver)
+
+1. Pull repository to respberry pi
+2. Change to `~/RaspiCam/scripts`
+3. Execute `sh ./update.sh` to update the server and install all dependency's
+4. Execute `sh ./server.sh` to start server
+
+**issues**
+Failed to copy files to `/var/www/html`
+- Execute `sudo chown pi /var/www/html`
+
+#### **Update.sh**
+pull the repository and start setup.sh
+#### **setup.sh**
+Install python3 and apache2,
+then installs all package extern packages,
+then copy the website to the webserver folder,
+
+#### **server.sh**
+starts the camera and servo server
+
 ## Usage
 
 Enter the IP address of your Raspberry Pi in a web browser. This will take you to the camera's control website where you can control it. Now you can monitor your area and receive the current video with your smartphone.
