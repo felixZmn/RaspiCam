@@ -1,5 +1,5 @@
 from numpy import interp
-import PCA9685 as servoDriver
+from PCA9685 import PCA9685 as servoDriver
 import time
 minValue = 900
 maxValue = 2100
@@ -11,7 +11,7 @@ class Servo:
         self.servoChannel = servoChannel
         servo = servoDriver(0x40)
         servo.setPWMFreq(50)
-        servo.setPWm(servoChannel, 0, 1024)
+        servo.setPWM(servoChannel, 0, 1024)
         servo.setServoPulse(servoChannel, midValue)  # 1500 is centered
         self.servo = servo
 
