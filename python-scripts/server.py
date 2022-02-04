@@ -11,9 +11,9 @@ from http import server
 from urllib import parse
 from servo import Servo
 
-servo1 = Servo(18)
+servo1 = Servo(1)
 # need to change port
-servo2 = Servo(12)
+servo2 = Servo(2)
 
 
 class StreamingOutput(object):
