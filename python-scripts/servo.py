@@ -1,8 +1,8 @@
 from numpy import interp
 from PCA9685 import PCA9685 as servoDriver
 import time
-minValue = 900
-maxValue = 2100
+minValue = 350
+maxValue = 2700
 midValue = minValue + (maxValue - minValue)
 
 
