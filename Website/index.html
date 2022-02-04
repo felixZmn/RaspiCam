@@ -7,7 +7,7 @@
     <script type="text/javascript">
       function rangeSlide(value, servoId) {
         fetch(
-          "http://192.168.137.203:8000/servo/" + servoId + "?degrees=" + value,
+          "http://raspberry.pi:8000/servo/" + servoId + "?degrees=" + value,
           { method: "POST" }
         );
       }
@@ -16,7 +16,7 @@
   <body>
     <div class="content">
       <div class="video">
-        <img src="http://192.168.137.203:8000/stream.mjpg" />
+        <img src="http://raspberry.pi:8000/stream.mjpg" />
       </div>
       <div class="streamSettings">
         <h2>ÜBERWACHUNGSKAMERA</h2>
