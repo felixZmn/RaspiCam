@@ -1,4 +1,4 @@
 #!/bin/sh
 
 git pull
-./setup.sh
+sh ./setup.sh
