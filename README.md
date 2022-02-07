@@ -13,7 +13,6 @@ It's an university-motivated project to learn something about the [raspberry pi]
 - [Apache Webserver](#apache-webserver)
 - Python 3
 - Python [PiCamera](#picamera)
-- Python [RPi.GPIO](#rpi.gpio)
 - Python [Numpy](#numpy)
 
 ## Installation
@@ -45,8 +44,11 @@ For more information about the servo driver, click [here](https://www.waveshare.
 
 #### **Setup servo motors with frame**
 
-- Plug in the vertical servo motor in `pin 0`
+- Plug in the vertical servo motor in `pin 2`
 - Plug in the horizontal servo motor in `pin 1`
+
+![alt](https://github.com/felixZmn/RaspiCam/blob/main/imgDocu/connect-servo-macro.jpeg)
+![alt](https://github.com/felixZmn/RaspiCam/blob/main/imgDocu/connect-servo.jpeg)
 
 ```
 G = Ground
@@ -56,7 +58,32 @@ S = Signal
 
 ### **Software**
 
-#### **Apache Webserver**
+#### Automatic installation with script
+
+##### **Setup with script** (requires apache webserver)
+
+1. Pull repository to respberry pi
+2. Change to `~/RaspiCam/scripts`
+3. Execute `sh ./update.sh` to update the server and install all dependency's
+
+**Issues**  
+Failed to copy files to `/var/www/html`
+- Execute `sudo chown pi /var/www/html`
+
+##### **Update.sh**
+pull the repository and start setup.sh
+
+##### **setup.sh**
+Install python3 and apache2,
+then installs all package extern packages,
+then copy the website to the webserver folder,
+
+##### **server.sh**
+starts the camera and servo server
+
+#### Manual installation
+
+##### **Apache Webserver**
 
 1. `sudo apt update && sudo apt upgrade`
 1. `sudo apt install apache2`
@@ -68,39 +95,23 @@ To verify that the Apache web server is running correctly on your Raspberry Pi, 
 
 If you enter the IP address from the Raspberry Pi into a web browser now, you should see the camera control website
 
-#### **PiCamera**
+##### **PiCamera**
 
-`sudo apt-get install python3-picamera`
+`pip install picamera`
 
-#### **RPi.GPIO**
+##### **Numpy**
 
-`sudo apt-get install python3-rpi.gpio`
+`pip install numpy`
 
-#### **Numpy**
-
-`sudo apt-get install python3-numpy`
-
-### **Setup with script** (requires apache webserver)
-
-1. Pull repository to respberry pi
-2. Change to `~/RaspiCam/scripts`
-3. Execute `sh ./update.sh` to update the server and install all dependency's
-4. Execute `sh ./server.sh` to start server
-
-**issues**
-Failed to copy files to `/var/www/html`
-- Execute `sudo chown pi /var/www/html`
-
-#### **Update.sh**
-pull the repository and start setup.sh
-#### **setup.sh**
-Install python3 and apache2,
-then installs all package extern packages,
-then copy the website to the webserver folder,
-
-#### **server.sh**
-starts the camera and servo server
 
 ## Usage
 
 Enter the IP address of your Raspberry Pi in a web browser. This will take you to the camera's control website where you can control it. Now you can monitor your area and receive the current video with your smartphone.
+
+### Launch application automatic
+1. Change directory to `~/RaspiCam/scripts`
+1. Execute `sh ./server.sh` to start server
+
+### Launch application manual
+1. Change directory to `~/RaspiCam/python-scripts`
+1. `python server.py`
